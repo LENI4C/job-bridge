@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BridgeLink Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .certification-shimmer {
+            background: linear-gradient(90deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.2) 50%, rgba(212,175,55,0.1) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#e7eeff",
+                        "outline": "#74777f",
+                        "on-primary-fixed": "#001c3a",
+                        "secondary-fixed": "#ffe088",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-background": "#111c2c",
+                        "inverse-primary": "#afc8f0",
+                        "primary-fixed-dim": "#afc8f0",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-error-container": "#93000a",
+                        "surface": "#f9f9ff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "primary-container": "#001f3f",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#d4e3ff",
+                        "outline-variant": "#c4c6cf",
+                        "on-surface-variant": "#43474e",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#cfdaf1",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#e1e3e4",
+                        "primary": "#000613",
+                        "surface-container-highest": "#d8e3fa",
+                        "inverse-surface": "#263142",
+                        "tertiary-container": "#1c1f20",
+                        "secondary-fixed-dim": "#e9c349",
+                        "background": "#f9f9ff",
+                        "surface-container-low": "#f0f3ff",
+                        "on-secondary-fixed": "#241a00",
+                        "on-secondary-container": "#745c00",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#040607",
+                        "surface-tint": "#476083",
+                        "secondary": "#735c00",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "secondary-container": "#fed65b",
+                        "on-primary-container": "#6f88ad",
+                        "on-surface": "#111c2c",
+                        "surface-container-high": "#dee8ff",
+                        "surface-variant": "#d8e3fa",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-primary-fixed-variant": "#2f486a",
+                        "on-tertiary-container": "#848688"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "container-max": "1280px",
+                        "md": "24px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Manrope"],
+                        "label-caps": ["Inter"],
+                        "h1": ["Manrope"],
+                        "h2": ["Manrope"],
+                        "button": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h3": ["20px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h1": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "h2": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "button": ["15px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm px-gutter py-base">
+<div class="max-w-container-max mx-auto flex justify-between items-center">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display text-h2 font-bold text-primary">BridgeLink</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-md">
+<span class="text-primary font-bold border-b-2 border-secondary cursor-pointer">Overview</span>
+<span class="text-on-surface-variant font-medium hover:text-secondary transition-colors cursor-pointer">Analytics</span>
+<span class="text-on-surface-variant font-medium hover:text-secondary transition-colors cursor-pointer">Reports</span>
+</div>
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full border-2 border-outline-variant" data-alt="A professional headshot of a corporate executive in a sharp navy blue suit, set against a blurred high-end office background. The lighting is soft and directional, highlighting a confident expression suitable for a premium talent platform. The overall aesthetic is minimalist, clean, and institutional, mirroring the BridgeLink brand colors of navy and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvA_abCInAZrT3jLJplKdA6cZ-rHMUhulTEvZT6LhU-LKiBkwhCR8w9VTwFovKf2ANoIBYQC9iw4c6BUDHOrkpys8yH0YwKWqjm_XBJjFpmy0DH3CZfdyuVhYdINsPU7rHv4oDFvPuLtiJgjNvH6o-duz5PpFJEVo88J1WXoDMLxzTPKV09kDIpPlkfwC9HpLr87ElN804_qQVFJwLnKbcKzHz6J2PqOD3UTCClE4lbkZVfDXCOn78jQ3_y5IBYXujt_mg90xp5O73"/>
+</div>
+</div>
+</header>
+<!-- Sidebar / NavigationDrawer -->
+<aside class="h-full w-80 fixed left-0 top-0 z-[60] bg-surface-bright shadow-xl flex flex-col p-md hidden lg:flex pt-xl">
+<div class="mt-base mb-lg px-xs">
+<div class="flex items-center gap-sm p-sm">
+<img alt="Alex Executive" class="w-12 h-12 rounded-full" data-alt="A close-up portrait of a male professional with a friendly smile, wearing a modern charcoal blazer. The background is a crisp, bright architectural space with subtle geometric lines. The image quality is premium and clear, representing the 'Alex Executive' persona of a Bridge Certified professional in a high-stakes corporate environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWkkwju_JI5yVAZMXRdIpTpX1WOn-WR2ygvZk7dolrjZDgDqIAcXI74TyDOLoa59HPOPrJNHOKwBcBnyC7Z4F3GSvTg9OSYbHCKcNPnXa19E1-1KOBIsTKU-oocasMt4wYGGc0DT-_fVj61-4E9AjaKeQoEKjMwA5OYQr8pd-Wqf1b_XvOD2mYcMK9yGObkwFe07PfWLakTFjCCcEQNM0-b_fcYpc4aVQUrUVEh2GBSQLFQfhJW_tvu3_fv6l3OQx63e3xCx4Af12B"/>
+<div>
+<p class="font-display text-body-md font-bold text-primary">Alex Executive</p>
+<p class="text-body-sm text-on-surface-variant">Bridge Certified Pro</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-xs">
+<div class="bg-secondary-container text-on-secondary-container rounded-lg font-bold flex items-center gap-md p-md cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>My Dashboard</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-container-low rounded-lg flex items-center gap-md p-md cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span>Marketplace</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-container-low rounded-lg flex items-center gap-md p-md cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span>Messages</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-container-low rounded-lg flex items-center gap-md p-md cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span>Certifications</span>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-container-low rounded-lg flex items-center gap-md p-md cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-80 pt-xl pb-xl px-gutter">
+<div class="max-w-container-max mx-auto mt-md">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-display text-h1 text-primary">Admin Overview</h2>
+<p class="text-body-md text-on-surface-variant">System status and platform performance metrics.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container-highest text-primary font-button px-md py-sm rounded-lg hover:bg-surface-variant transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        Export Report
+                    </button>
+<button class="bg-primary text-on-primary font-button px-md py-sm rounded-lg hover:opacity-90 transition-opacity flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">add</span>
+                        Create Invite
+                    </button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-md mb-lg">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30">
+<p class="text-label-caps text-on-surface-variant mb-xs">TOTAL USERS</p>
+<div class="flex items-end justify-between">
+<h3 class="font-display text-h1 text-primary">12,482</h3>
+<span class="text-success text-body-sm font-bold flex items-center text-[#1b5e20]"><span class="material-symbols-outlined">trending_up</span> 8.2%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30">
+<p class="text-label-caps text-on-surface-variant mb-xs">ACTIVE JOBS</p>
+<div class="flex items-end justify-between">
+<h3 class="font-display text-h1 text-primary">843</h3>
+<span class="text-on-surface-variant text-body-sm">Last 30 days</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30">
+<p class="text-label-caps text-on-surface-variant mb-xs">PENDING VERIFICATIONS</p>
+<div class="flex items-end justify-between">
+<h3 class="font-display text-h1 text-secondary">52</h3>
+<span class="bg-secondary-container px-sm py-xs rounded-full text-label-caps text-on-secondary-container">Action Required</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30">
+<p class="text-label-caps text-on-surface-variant mb-xs">PLATFORM REVENUE</p>
+<div class="flex items-end justify-between">
+<h3 class="font-display text-h1 text-primary">$142.5k</h3>
+<span class="text-body-sm text-on-surface-variant">Q3 Projection</span>
+</div>
+</div>
+</div>
+<!-- Management Sections: Asymmetric Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Pending Approvals & Job Moderation (Left Column) -->
+<div class="lg:col-span-7 space-y-lg">
+<!-- Pending Approvals -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
+<div class="p-md border-b border-outline-variant/20 flex justify-between items-center">
+<h3 class="font-h3 text-primary">Pending Approvals</h3>
+<button class="text-primary font-button text-body-sm hover:underline">View All Queue</button>
+</div>
+<div class="divide-y divide-outline-variant/10">
+<!-- Candidate Item -->
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-md">
+<img alt="Sarah Jenkins" class="w-12 h-12 rounded-lg object-cover" data-alt="Close-up of a female professional with glasses, wearing a tailored cream blazer, in a bright modern office with floor-to-ceiling windows. The image has a sharp focus and natural lighting, embodying the sophisticated and vetted nature of candidates on the BridgeLink platform. Premium and executive-level aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgKoMaeHge263C7Ch0XZUgNWDPPb-KrlmqnHSikGKzqhZDzw2gSuG2mwkpLYhzTYUXLZ9O7gVGnutalK3gTZchTC2iSdZiEHzvtJEtu57ltcwbfT73UbzBm81Cocc8bybcpTWy3cc7EqkkowUsdW3EY0Kg6odSiFilThVlbPOah2-zonQcKNBQ82f0Xcy1O07XZK7faNOmfwJCZQZVVZT9lcbx_efXye-8E2ff_7rN_o8zxai9SPZD03vE1EJ3Ll994OEILPXv_WUc"/>
+<div>
+<p class="font-bold text-primary">Sarah Jenkins</p>
+<p class="text-body-sm text-on-surface-variant">Senior Product Strategist • Candidate</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container text-on-surface font-button px-md py-xs rounded hover:bg-surface-container-highest transition-colors">Reject</button>
+<button class="bg-primary text-on-primary font-button px-md py-xs rounded hover:opacity-90 transition-opacity">Approve</button>
+</div>
+</div>
+<!-- Employer Item -->
+<div class="p-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<p class="font-bold text-primary">Vanguard Financial Group</p>
+<p class="text-body-sm text-on-surface-variant">Financial Services • Employer</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container text-on-surface font-button px-md py-xs rounded hover:bg-surface-container-highest transition-colors">Reject</button>
+<button class="bg-primary text-on-primary font-button px-md py-xs rounded hover:opacity-90 transition-opacity">Approve</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Job Moderation Queue -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30">
+<div class="p-md border-b border-outline-variant/20">
+<h3 class="font-h3 text-primary">Job Moderation Queue</h3>
+</div>
+<div class="p-md space-y-md">
+<div class="border border-outline-variant/30 rounded-lg p-md flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="bg-surface-container text-primary text-label-caps px-sm py-xs rounded">New Listing</span>
+<p class="text-body-sm text-on-surface-variant">2 hours ago</p>
+</div>
+<p class="font-bold text-primary text-body-lg">Director of Institutional Sales</p>
+<p class="text-body-sm text-on-surface-variant">Meridian Capital Partners • Full-time • Remote</p>
+</div>
+<div class="flex gap-sm">
+<button class="p-base text-error hover:bg-error-container/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+<button class="p-base text-primary hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="bg-primary text-on-primary font-button px-md py-xs rounded-lg">Approve Post</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Bridge Certification & Analytics (Right Column) -->
+<div class="lg:col-span-5 space-y-lg">
+<!-- Bridge Certification Tool -->
+<section class="bg-primary text-on-primary rounded-xl shadow-lg p-md relative overflow-hidden">
+<div class="certification-shimmer absolute inset-0 pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<h3 class="font-h3">Bridge Certification Tool</h3>
+</div>
+<p class="text-body-sm mb-md opacity-80">Search academy graduates to assign the premium certification badge.</p>
+<div class="flex flex-col gap-sm">
+<div class="relative">
+<input class="w-full bg-primary-container border-none text-on-primary placeholder:text-on-primary/50 rounded-lg py-md pl-xl focus:ring-secondary" placeholder="Search by name or email..." type="text"/>
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-primary/50">search</span>
+</div>
+<div class="bg-surface-container-lowest/10 rounded-lg p-sm flex items-center justify-between border border-white/10">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-primary font-bold flex items-center justify-center text-xs">JD</div>
+<div>
+<p class="text-body-sm font-bold">Jameson Davis</p>
+<p class="text-[10px] uppercase tracking-wider text-secondary">Academy Class of 2024</p>
+</div>
+</div>
+<button class="bg-secondary text-primary font-button text-xs px-md py-xs rounded-lg hover:brightness-110 transition-all">Assign Badge</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Analytics: User Growth -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-md">
+<h3 class="font-h3 text-primary mb-md">Platform Growth</h3>
+<div class="h-48 w-full flex items-end gap-xs mb-md">
+<!-- Visualizing a simple bar chart -->
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[30%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[45%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[35%]"></div>
+<div class="flex-1 bg-primary rounded-t-sm h-[65%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[55%]"></div>
+<div class="flex-1 bg-primary rounded-t-sm h-[85%]"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[100%]"></div>
+</div>
+<div class="flex justify-between text-label-caps text-on-surface-variant">
+<span>MON</span>
+<span>TUE</span>
+<span>WED</span>
+<span>THU</span>
+<span>FRI</span>
+<span>SAT</span>
+<span>SUN</span>
+</div>
+</section>
+<!-- Trust Bar / Recent Logs -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-md">
+<p class="text-label-caps text-on-surface-variant mb-md">LATEST SYSTEM LOGS</p>
+<ul class="space-y-sm text-body-sm">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">info</span>
+<span>API Key regenerated for 'Enterprise X' integration.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-error text-[18px]">report</span>
+<span>Failed login attempt (x4) from IP 192.168.1.1.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">stars</span>
+<span>New 'Bridge Certified' badge issued to Maya Lin.</span>
+</li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-surface border-t border-outline-variant flex justify-around items-center h-16">
+<div class="flex flex-col items-center justify-center text-secondary font-bold cursor-pointer">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+<span class="text-label-caps">Jobs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-caps">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant cursor-pointer">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-caps">Inbox</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-caps">Profile</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-xl mt-auto bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="text-center md:text-left">
+<h3 class="font-display text-h3 text-on-primary mb-xs">BridgeLink</h3>
+<p class="font-body-sm text-surface-variant opacity-70">© 2024 BridgeLink. Premium Talent Acquisition.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all text-body-sm" href="#">Terms of Service</a>
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all text-body-sm" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all text-body-sm" href="#">Employer FAQ</a>
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all text-body-sm" href="#">Talent Support</a>
+</div>
+</div>
+</footer>
+</body></html>

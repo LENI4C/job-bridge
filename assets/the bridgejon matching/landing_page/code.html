@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BridgeLink | Premium Talent Acquisition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .certification-shimmer {
+            background: linear-gradient(90deg, #D4AF37 0%, #F5E3A6 50%, #D4AF37 100%);
+            background-size: 200% auto;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#735c00",
+                        "tertiary-container": "#1c1f20",
+                        "on-surface-variant": "#43474e",
+                        "tertiary": "#040607",
+                        "on-surface": "#111c2c",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#afc8f0",
+                        "primary-fixed": "#d4e3ff",
+                        "secondary-container": "#fed65b",
+                        "secondary-fixed-dim": "#e9c349",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#dee8ff",
+                        "surface-dim": "#cfdaf1",
+                        "tertiary-fixed": "#e1e3e4",
+                        "outline-variant": "#c4c6cf",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed-variant": "#2f486a",
+                        "on-error": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "secondary-fixed": "#ffe088",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container": "#e7eeff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#000613",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-tint": "#476083",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "primary-fixed-dim": "#afc8f0",
+                        "on-primary-fixed": "#001c3a",
+                        "primary-container": "#001f3f",
+                        "on-tertiary-fixed": "#191c1d",
+                        "surface-variant": "#d8e3fa",
+                        "on-secondary-container": "#745c00",
+                        "outline": "#74777f",
+                        "surface-container-low": "#f0f3ff",
+                        "on-tertiary-container": "#848688",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#d8e3fa",
+                        "on-primary-container": "#6f88ad",
+                        "inverse-surface": "#263142",
+                        "on-background": "#111c2c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display": ["Manrope"],
+                        "h3": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h1": ["Manrope"],
+                        "h2": ["Manrope"],
+                        "button": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h3": ["20px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "h2": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "button": ["15px", {"lineHeight": "1", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-tertiary shadow-sm">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+<span class="font-display text-h2 font-bold text-primary dark:text-primary-fixed">BridgeLink</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-secondary font-body-md text-body-md" href="#">Marketplace</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-200 font-body-md text-body-md" href="#">Solutions</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-200 font-body-md text-body-md" href="#">Enterprise</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-200 font-body-md text-body-md" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="hidden lg:block px-md py-sm font-button text-button text-primary hover:bg-surface-container-low transition-all">Sign In</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden cursor-pointer active:opacity-80">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive in his late 30s wearing a charcoal suit. The lighting is soft and studio-quality, emphasizing a bright, trustworthy aesthetic. The background is a clean, minimalist off-white office setting with soft bokeh. The overall mood is confident and professional, aligning with a high-end talent acquisition platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMctyqBO3qET5sebezeaJ21UePz8i1AZ9rTdse0TtW8xkgKUSNVDj9gYL49CCXjuZ-tv34DH2ggrVy3yYOscjI_NTdFlcus9nYSVAR8AcmcTNv8Hb__8NYrB1pIoI8fZ0J_JOYirnrEHBYejjOi7w8rLq7ei25YOyL5hOuNG_DiMxOfe2XvZCemtGWf-H1ua0TH1JfKpa4xdOarlMPwDwmaWOIEFBwgJzemGyLAganyvCxxgx7Kb-LQj6-Zxbnx-Xrb3maYsv-35e"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative bg-surface-bright py-xl overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter grid lg:grid-cols-2 gap-xl items-center">
+<div class="z-10">
+<span class="font-label-caps text-label-caps text-secondary mb-base block">PREMIUM ASSISTANT NETWORK</span>
+<h1 class="font-display text-display text-primary mb-md max-w-xl">
+                        Hire Better Assistants. <br/> Get Better Opportunities.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg">
+                        The elite marketplace for high-tier professional support. We bridge the gap between world-class assistants and visionary leaders through our rigorous certification process.
+                    </p>
+<div class="flex flex-wrap gap-md">
+<button class="bg-primary text-on-primary px-lg py-md rounded-lg font-button text-button hover:bg-primary-container transition-all shadow-md">Hire Talent</button>
+<button class="border-2 border-primary text-primary px-lg py-md rounded-lg font-button text-button hover:bg-surface-container-low transition-all">Find Jobs</button>
+</div>
+<div class="mt-xl flex items-center gap-md">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-surface-container">
+<img data-alt="Close up portrait of a smiling professional woman with a clean, high-key lighting setup. She has a modern business-casual appearance against a soft, light grey architectural background. The image evokes a sense of approachability and high-level professionalism in a corporate context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH8sqIRAg2K31uySJ_lih0REeDScCPM5akK-BCaPcxIOGgEpHL_a-5WQPjBN09-2x5wnlNd-WuHnEoPtfBDSGkx5ABwj_4kbl29SNso18wdDGnrxYVuMwzkcBoFSJysiOR4YS06YzUSoNEyA2IZsRx0u0d6keBJ3N24nw5bnzixH8dfVhxUcU2LYfy35qL0dVQuM_tAGPXq8jvRIX6ucW8M5JG3o2EmTsoaKJDWjMfUGPt1BjJ-OwQRIVmPeiAA2XexTfMYeE08zaH"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-surface-container">
+<img data-alt="Professional male candidate portrait with a warm, minimalist aesthetic. The lighting is diffused and professional, showcasing a clean-shaven man in a crisp white shirt. The background is a soft-focus modern office, emphasizing an atmosphere of reliability and executive support excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnzqgT67DqaFokd6ksWvDej44CzaywqA5-X5qqVxV3gIcqteNjE-zkvfNMC9Iih3BQ9hlk1mRQDVHTKm7qh1G_73BdEilP2vT9lpK_eOHFCe_eT10kRogQtV40QMtbr6xehg-C3OBH5V8yUaUYxTDuXk3A_67MaBNdy6UKgWdUvD450bL_Q-HrAPkrUxCr_babXB4HI58_pyQePj0pTUfLPAVrCIquUnxrsztUF397e4yjZPq9ln7ia5UkeVHjTjPJRpV0UyxLLQMy"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-surface-container">
+<img data-alt="A portrait of a confident female professional in a minimalist corporate setting. High-key lighting creates a bright and airy atmosphere, highlighting her expert and polished appearance. The color palette is composed of neutrals and soft blues, aligning with a premium, institutional design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWpyJt1Qoa3y5ITEMdmoyhAE901bvb8AEGjneAyiZc6GbYjZC1Wm4JqlUAPguywAeNMHlKdFAg8FZ4q_3ciyGCiqjTahTMz2xs8x_fI1CdpR__a2uYajuCkm79dDv4NFkFpNnx5MiqEuxoOK0APaXNsmh1BP6plQtAb4TTYKxNNMpU8i-3VLI5DlJnzTbFcVWgZVIg-nn5rgbFvc8Ulk7vsCRM3zpi8wD1NcJNnboT8vLYzAqC9uT6ahSF1-o-LGFtLIT-TTIFOPj7"/>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant"><span class="font-bold text-primary">500+</span> Verified Bridge Pros active today</p>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="absolute inset-0 bg-secondary-container opacity-10 rounded-full scale-110 blur-3xl"></div>
+<div class="relative bg-white p-md rounded-xl shadow-xl border border-outline-variant">
+<img class="rounded-lg mb-md w-full h-[400px] object-cover" data-alt="A wide-angle shot of a sleek, modern corporate skyscraper made of glass and steel, reflecting a clear blue sky. The lighting is crisp and bright, conveying a sense of established institutional success and minimalist architecture. The perspective is from the ground looking up, creating a feeling of prestige and professional aspiration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9zz5SiZ2u_cnR6dr6JrqNOWSG7oVnxUU57t78aps8WLGAvjIqZ1DJwOey_iG5dp9d5D77HehtORZ10sWDOnUdMA8cPQDrhmI_lkJzbf8Nq4psgmDbRuLoFLK5hSACocI5CxcCUfy4o5_dmFUQTdgSvMM7xi9OlYLvFYmF__Wn9OfZIPStFOKlNBc2PoLS93mk5CONi5lvdeqm9PU00-8x9IXxY2h6YOaDhmdQ5ImnpMfXC3g1RMrYxd4H5YmGT31imvjOu4md8M0l"/>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="verified" data-weight="fill">verified</span>
+<span class="font-h3 text-h3 text-primary">Bridge Certified Elite</span>
+</div>
+<span class="text-secondary font-bold font-body-sm">Top 1% Talent</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="py-lg bg-white border-y border-outline-variant">
+<div class="max-w-container-max mx-auto px-gutter">
+<p class="text-center font-label-caps text-label-caps text-on-surface-variant mb-md uppercase tracking-widest">TRUSTED BY GLOBAL ENTERPRISES</p>
+<div class="flex flex-wrap justify-center items-center gap-xl opacity-40 grayscale">
+<span class="font-display text-h2 font-bold">VENTURE.CO</span>
+<span class="font-display text-h2 font-bold">NORDIC_LABS</span>
+<span class="font-display text-h2 font-bold">EQUITY+</span>
+<span class="font-display text-h2 font-bold">ASSET_LINK</span>
+<span class="font-display text-h2 font-bold">HORIZON</span>
+</div>
+</div>
+</section>
+<!-- Certification Showcase -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl">
+<div class="max-w-2xl">
+<h2 class="font-display text-h1 text-primary mb-sm">Bridge Certified Talent</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our candidates undergo a rigorous 4-week vetting and training process before entering the marketplace. Pre-trained, Verified, and Job-ready.</p>
+</div>
+<button class="text-secondary font-bold font-button text-button flex items-center gap-xs group">
+                        View All Talent <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Asymmetric Bento Grid for Talent -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Talent Card 1 -->
+<div class="md:col-span-2 bg-white rounded-xl p-md shadow-sm border border-outline-variant hover:shadow-md transition-all group">
+<div class="flex flex-col md:flex-row gap-md">
+<div class="w-full md:w-48 h-64 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Portrait of a sophisticated female professional with a sharp, modern haircut. She is wearing a minimal navy blue dress in a high-key, sun-drenched office setting. The lighting is soft and flatters her professional features, reflecting the 'Bridge Certified' standard of excellence and calm efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoW4JvcVeptW8JSnthqLv5WhObYe1lg-ZnZ9DcM66f3-ZkwH1zJymY37aXC4BzAwGF5WZk3ojfEQz34wvM2_gN-w6nSVzB3EGMbvbFnaioywAmmav0LlnSuk-KlBrlc3Vk6ySAm3IK3UurDuQqvcIsmTw2EtDe62hv-XJndQ5pCSHjAT2KRSkgvNF06MYyvXvTbXTADhmeK8T0tvewH5mzFISoV5bHZyBqP5MuzY2LSCaz6sbqYaHl76slh7ppEhyhKSf-63XENPBy"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-display text-h2 text-primary">Sarah Chen</h3>
+<p class="font-body-sm text-body-sm text-secondary font-semibold">Executive Virtual Assistant</p>
+</div>
+<div class="certification-shimmer px-sm py-xs rounded-full flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-white" data-icon="verified" data-weight="fill">verified</span>
+<span class="text-white font-label-caps text-[10px]">BRIDGE CERTIFIED</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Specializing in calendar management and international travel logistics for Series C founders. Bilingual in English and Mandarin.</p>
+<div class="flex flex-wrap gap-xs mb-lg">
+<span class="bg-surface-container px-sm py-xs rounded-full text-body-sm text-on-surface-variant">Operations</span>
+<span class="bg-surface-container px-sm py-xs rounded-full text-body-sm text-on-surface-variant">Scheduling</span>
+<span class="bg-surface-container px-sm py-xs rounded-full text-body-sm text-on-surface-variant">Travel Planning</span>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="schedule">schedule</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Available Full-Time</span>
+</div>
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-button text-button">Review Profile</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Talent Card 2 -->
+<div class="bg-white rounded-xl p-md shadow-sm border border-outline-variant hover:shadow-md transition-all flex flex-col group">
+<div class="w-full h-40 rounded-lg overflow-hidden mb-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Corporate headshot of a smiling male professional with short hair and a tailored blazer. The background is a clean, bright, and modern lobby with soft daylight. The color palette is minimal, focusing on whites, greys, and navy, conveying a premium and verified assistant persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJDBqZhnyuv__3aXEUPCjY6oo9HwXvPN1nszgl9PBdpceljvi687c04W_185Uk64vyppWmT5ZjRcgFQcQXYK0569gBWZuyenS76u5AgesPGqu_wduJEsquc-xv4q-yRFEbsCv_7R0az8E0SqqD1NXxUcq4tIAN8kzklj7YgRJRxtNdwo8fxXnJJWx5RjDm21ojeG9RD1SOnGV3OSQ6nBfXjCslJaPTpOfQHTPTm0Q_MM7dmTruCviORPfknoMeqVSytT7LBV3-QkP5"/>
+</div>
+<div class="certification-shimmer w-fit px-sm py-xs rounded-full flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="verified" data-weight="fill">verified</span>
+<span class="text-white font-label-caps text-[10px]">BRIDGE CERTIFIED</span>
+</div>
+<h3 class="font-display text-h3 text-primary">Marcus Thorne</h3>
+<p class="font-body-sm text-body-sm text-secondary font-semibold mb-sm">Project Operations Specialist</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-grow">Expert in Notion workflows and CRM management for high-growth tech firms.</p>
+<button class="mt-md w-full border border-outline text-primary px-md py-sm rounded-lg font-button text-button hover:bg-surface-container-low">View Details</button>
+</div>
+<!-- Talent Card 3 -->
+<div class="bg-white rounded-xl p-md shadow-sm border border-outline-variant hover:shadow-md transition-all flex flex-col group">
+<div class="w-full h-40 rounded-lg overflow-hidden mb-md">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a professional woman looking forward with a friendly and capable expression. High-key lighting fills the frame, creating a bright and modern look. The image is crisp and professional, symbolizing the elite quality of candidates on the BridgeLink platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb1i9GZBXE1xsYG9htggFTQ7Z-pNAoMy7ebDJ17q_niIttlQyt9lADY6OVREvArVAFgxW3t1Ay5SqfWt73xzPx_zvIevg3-AbUyxfUx7LiHfw1SEtVQqg_1CPeh8wSEl3A0Nw9iiitpVKnovbf5zdhxPNfrvDjVvd7e6hvnaH9CSk2V_kolhBXLL3skcFLH0tEikRFwet3qYzPmvF4GY5eyFDpRW14pGGMALjb09N-fnbSxX1moZmo2AeHRnKm-gWu37mOPnz5S5Dj"/>
+</div>
+<div class="certification-shimmer w-fit px-sm py-xs rounded-full flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="verified" data-weight="fill">verified</span>
+<span class="text-white font-label-caps text-[10px]">BRIDGE CERTIFIED</span>
+</div>
+<h3 class="font-display text-h3 text-primary">Elena Rodriguez</h3>
+<p class="font-body-sm text-body-sm text-secondary font-semibold mb-sm">Chief of Staff Support</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex-grow">Experienced in executive communications and stakeholder management.</p>
+<button class="mt-md w-full border border-outline text-primary px-md py-sm rounded-lg font-button text-button hover:bg-surface-container-low">View Details</button>
+</div>
+<!-- Feature Stat Box -->
+<div class="md:col-span-2 bg-primary text-on-primary rounded-xl p-lg flex flex-col justify-center">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md text-center">
+<div>
+<p class="font-display text-h1 text-secondary-fixed">98%</p>
+<p class="font-label-caps text-label-caps opacity-70">PLACEMENT RATE</p>
+</div>
+<div>
+<p class="font-display text-h1 text-secondary-fixed">24H</p>
+<p class="font-label-caps text-label-caps opacity-70">MATCH SPEED</p>
+</div>
+<div>
+<p class="font-display text-h1 text-secondary-fixed">150+</p>
+<p class="font-label-caps text-label-caps opacity-70">SKILL TESTS</p>
+</div>
+<div>
+<p class="font-display text-h1 text-secondary-fixed">Top 1%</p>
+<p class="font-label-caps text-label-caps opacity-70">ADMISSION</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Employer Benefits Section -->
+<section class="py-xl bg-white">
+<div class="max-w-container-max mx-auto px-gutter grid lg:grid-cols-2 gap-xl items-center">
+<div class="relative">
+<img class="rounded-xl shadow-2xl" data-alt="An expansive, ultra-modern open office space with floor-to-ceiling windows and minimalist white furniture. The lighting is bright and even, highlighting a clean, high-end professional environment. The atmosphere is quiet, focused, and sophisticated, perfectly representing the corporate world BridgeLink serves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrfHJHYXldQwFo5SxP2jbfjcoSR9NxS2ysGXeBXiPI5Rl5a-UghF0TCPhcfGElleA6Phrr9akBa6oC1h8-aUP1KLP9eShffTCfV8Pq_ZzBWpIaP1yJ-O8K8-nVsca37EGjH8_6v3RGoVoUUAk7iAfKRw9Tdt6Hfub4Xy4Y3tRB-oX6P6wwu4Su1urwPhq_ja9mbq1HtlgrOp8GuA9gR97zFm9ReAvajrTGnmPqm15OqXFSrgT9x8TUwTzjG5TPOk2KxNrsZZZejClB"/>
+<div class="absolute -bottom-10 -right-10 bg-white p-md rounded-xl shadow-xl border border-outline-variant hidden md:block max-w-xs">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="star">star</span>
+</div>
+<span class="font-h3 text-h3 text-primary">Bridge Elite</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"BridgeLink cut our hiring time by 70%. The quality of candidates is simply unmatched in the industry."</p>
+<p class="font-body-sm text-body-sm font-bold text-primary mt-sm">— VP Operations, TechFlow</p>
+</div>
+</div>
+<div>
+<h2 class="font-display text-h1 text-primary mb-md">Built for Better Business</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Don't waste months on generic job boards. BridgeLink provides a curated experience designed for high-growth companies and busy executives.</p>
+<div class="space-y-md">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="shield_check">shield</span>
+<div>
+<h4 class="font-h3 text-h3 text-primary">Pre-Vetted Excellence</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Every assistant passes background checks, skill assessments, and personality mapping.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="bolt">bolt</span>
+<div>
+<h4 class="font-h3 text-h3 text-primary">Instant Integration</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Our "Bridge Ready" training ensures talent is familiar with executive-level tools from day one.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="handshake">handshake</span>
+<div>
+<h4 class="font-h3 text-h3 text-primary">Dedicated Success Lead</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">A personal hiring consultant to manage your specific talent requirements and culture fit.</p>
+</div>
+</div>
+</div>
+<button class="mt-xl bg-primary text-on-primary px-lg py-md rounded-lg font-button text-button hover:bg-primary-container transition-all">Start Hiring Today</button>
+</div>
+</div>
+</section>
+<!-- Job Listings -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-xl">
+<h2 class="font-display text-h1 text-primary mb-sm">Featured Opportunities</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Premium roles for high-performing assistants. Elevate your career with industry-leading firms.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Job Card 1 -->
+<div class="bg-white p-md rounded-xl shadow-sm border border-outline-variant hover:border-secondary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-md">
+<div class="flex gap-md">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-display font-bold text-primary">SF</div>
+<div>
+<h3 class="font-h3 text-h3 text-primary group-hover:text-secondary">Chief of Staff Support</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Solaris Financial • London / Remote</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-caps text-label-caps">$120k — $140k</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Support the Founding Partner of an ESG-focused VC firm. Requires high discretion and impeccable writing skills.</p>
+<div class="flex items-center gap-md">
+<span class="flex items-center gap-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="business">business</span> Fintech
+                            </span>
+<span class="flex items-center gap-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="public">public</span> Hybrid
+                            </span>
+<span class="flex items-center gap-xs font-body-sm text-body-sm text-on-surface-variant ml-auto">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span> 2h ago
+                            </span>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="bg-white p-md rounded-xl shadow-sm border border-outline-variant hover:border-secondary transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-md">
+<div class="flex gap-md">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center font-display font-bold text-primary">KL</div>
+<div>
+<h3 class="font-h3 text-h3 text-primary group-hover:text-secondary">Executive Assistant</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kinetix Labs • New York</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-caps text-label-caps">$100k — $115k</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Operational support for a rapid-growth AI startup CEO. Focus on complex travel and stakeholder relations.</p>
+<div class="flex items-center gap-md">
+<span class="flex items-center gap-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="psychology">psychology</span> AI/Tech
+                            </span>
+<span class="flex items-center gap-xs font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span> On-site
+                            </span>
+<span class="flex items-center gap-xs font-body-sm text-body-sm text-on-surface-variant ml-auto">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span> 5h ago
+                            </span>
+</div>
+</div>
+</div>
+<div class="mt-lg text-center">
+<button class="border-2 border-primary text-primary px-lg py-md rounded-lg font-button text-button hover:bg-surface-container-low transition-all">Explore All 142 Jobs</button>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="py-xl bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-gutter text-center">
+<h2 class="font-display text-display mb-md">Ready for the Next Level?</h2>
+<p class="font-body-lg text-body-lg opacity-80 mb-xl max-w-2xl mx-auto">Join the most prestigious assistant marketplace. Whether you're hiring or looking for your next career-defining role, BridgeLink is the standard.</p>
+<div class="flex flex-col md:flex-row justify-center items-center gap-md">
+<button class="w-full md:w-auto bg-secondary-container text-on-secondary-container px-xl py-md rounded-lg font-button text-button hover:bg-secondary transition-all">Apply for Certification</button>
+<button class="w-full md:w-auto border border-on-primary text-on-primary px-xl py-md rounded-lg font-button text-button hover:bg-on-primary hover:text-primary transition-all">Schedule Demo</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl mt-auto bg-primary dark:bg-tertiary">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-md">
+<div class="flex flex-col gap-sm">
+<span class="font-display text-h3 text-on-primary font-bold">BridgeLink</span>
+<p class="font-body-sm text-body-sm text-surface-variant opacity-70">© 2024 BridgeLink. Premium Talent Acquisition.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all font-body-sm text-body-sm" href="#">Terms of Service</a>
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all font-body-sm text-body-sm" href="#">Privacy Policy</a>
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all font-body-sm text-body-sm" href="#">Employer FAQ</a>
+<a class="text-surface-variant hover:text-secondary-fixed-dim underline transition-all font-body-sm text-body-sm" href="#">Talent Support</a>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-primary cursor-pointer hover:text-secondary transition-colors" data-icon="language">language</span>
+<span class="material-symbols-outlined text-on-primary cursor-pointer hover:text-secondary transition-colors" data-icon="campaign">campaign</span>
+<span class="material-symbols-outlined text-on-primary cursor-pointer hover:text-secondary transition-colors" data-icon="group">group</span>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-surface dark:bg-tertiary border-t border-outline-variant h-16 flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-secondary font-bold font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined" data-icon="business_center" data-weight="fill">business_center</span>
+            Jobs
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-caps text-label-caps active:bg-surface-container transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+            Search
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-caps text-label-caps active:bg-surface-container transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+            Inbox
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-caps text-label-caps active:bg-surface-container transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+            Profile
+        </a>
+</nav>
+</body></html>

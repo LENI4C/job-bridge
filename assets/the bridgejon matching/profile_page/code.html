@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#735c00",
+                    "tertiary-container": "#1c1f20",
+                    "on-surface-variant": "#43474e",
+                    "tertiary": "#040607",
+                    "on-surface": "#111c2c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#afc8f0",
+                    "primary-fixed": "#d4e3ff",
+                    "secondary-container": "#fed65b",
+                    "secondary-fixed-dim": "#e9c349",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#dee8ff",
+                    "surface-dim": "#cfdaf1",
+                    "tertiary-fixed": "#e1e3e4",
+                    "outline-variant": "#c4c6cf",
+                    "surface-bright": "#f9f9ff",
+                    "on-primary-fixed-variant": "#2f486a",
+                    "on-error": "#ffffff",
+                    "surface": "#f9f9ff",
+                    "on-tertiary-fixed-variant": "#454748",
+                    "secondary-fixed": "#ffe088",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container": "#e7eeff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#000613",
+                    "inverse-on-surface": "#ebf1ff",
+                    "surface-tint": "#476083",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "primary-fixed-dim": "#afc8f0",
+                    "on-primary-fixed": "#001c3a",
+                    "primary-container": "#001f3f",
+                    "on-tertiary-fixed": "#191c1d",
+                    "surface-variant": "#d8e3fa",
+                    "on-secondary-container": "#745c00",
+                    "outline": "#74777f",
+                    "surface-container-low": "#f0f3ff",
+                    "on-tertiary-container": "#848688",
+                    "on-secondary-fixed-variant": "#574500",
+                    "background": "#f9f9ff",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#d8e3fa",
+                    "on-primary-container": "#6f88ad",
+                    "inverse-surface": "#263142",
+                    "on-background": "#111c2c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display": ["Manrope"],
+                    "h3": ["Manrope"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "h1": ["Manrope"],
+                    "h2": ["Manrope"],
+                    "button": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h3": ["20px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h1": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "h2": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "button": ["15px", {"lineHeight": "1", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bridge-shimmer {
+            background: linear-gradient(90deg, #D4AF37 0%, #FFDF00 50%, #D4AF37 100%);
+            background-size: 200% auto;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm dark:bg-tertiary">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80">menu</span>
+<h1 class="font-display text-h2 font-bold text-primary dark:text-primary-fixed">BridgeLink</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-md">
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-200" href="#">Marketplace</a>
+<a class="text-primary font-bold border-b-2 border-secondary hover:text-secondary transition-colors duration-200" href="#">Profile</a>
+</div>
+<img alt="Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional high-end headshot of a corporate executive woman in a dark tailored blazer. She is smiling confidently against a soft, blurred office interior with natural daylight and a minimalist, clean aesthetic. The lighting is bright and airy, reflecting a premium professional networking environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR77rFJDoErzB-GFbQFfNWGyQKW_pk_mEVnfy_rchpwzrXOsJ8EE77sRGLdmZDgGQ8lXdFBDo-t7mhetsMP79Uq4reVHipqWV2FOOKK9mIJVoNTnx-8TmmUNYMC8c82byV_OHYz5M3bO_tu6RapwlAaOajUSXEgKHZcXn9sdnmaDRDUbrGnbk5RiNQRmJ79q-TXK-FCiQoSVBP-KM719O8sDaWyFIIQxl5Rl8bq_I0uQEWSOwWkno1gGvPA6M5UTqJS19AnNJwoAnf"/>
+</div>
+</div>
+</header>
+<main class="pt-[80px] pb-xl px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg mt-md">
+<!-- Left Column: Primary Profile Info -->
+<div class="md:col-span-8 space-y-md">
+<!-- Profile Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)] relative overflow-hidden">
+<!-- Bridge Certified Badge -->
+<div class="absolute top-md right-md flex items-center gap-xs px-sm py-xs bg-secondary-container rounded-full text-on-secondary-container border border-secondary shadow-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-label-caps">Bridge Certified</span>
+</div>
+<div class="flex flex-col md:flex-row gap-md items-start">
+<img alt="Alexandra Thorne" class="w-32 h-32 md:w-48 md:h-48 rounded-xl object-cover shadow-sm" data-alt="Close up portrait of a professional executive assistant in a high-end corporate setting. She is wearing a modern charcoal suit with a neutral silk blouse. The background is a bright, minimalist executive lounge with soft bokeh lighting and subtle grey and gold accents. The mood is one of quiet confidence and institutional prestige." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACz8P7wF8s4c9Btdo82qwwQTZGExihCz3NNWTrM5QLXUt1gch8iw8jkhb50K1nHVT3ZZRo13XcmpXFsb-LnohE_4e-zs7fBAB9wdkJ5b_IU-V2pvl1cvu6Mm3WUglrRYt-NZ_pLV20ksM_4kLcP2M5ezA-VSKtrNmFGKmMu7n6EjL-hDIjw8PimO7PK3NWJvM9ueq44W9Yp19Uo97dOiN-_UDhy73u75CEhC1OZIwcbYs-YX23kKTEwPwfyCxQS6QulH1Rmlq_fqWC"/>
+<div class="flex-1">
+<h1 class="font-display text-display text-primary">Alexandra Thorne</h1>
+<p class="font-h3 text-h3 text-on-surface-variant mt-xs">Executive Assistant to C-Suite</p>
+<div class="flex flex-wrap gap-sm mt-md">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="font-body-sm text-body-sm">Greater London, UK</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">event_available</span>
+<span class="font-body-sm text-body-sm">Immediate Start</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="font-body-sm text-body-sm">£85k - £105k</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Professional Summary -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h2 class="font-display text-h2 text-primary border-b border-outline-variant pb-sm mb-md">Professional Summary</h2>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                        Highly accomplished Executive Assistant with over 12 years of experience supporting FTSE 100 CEOs and Global Managing Directors. Expert in complex international calendar management, strategic project coordination, and high-stakes stakeholder relations. Recognized for maintaining discretion and operational excellence in high-pressure fintech and legal environments. 
+                    </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md mt-lg">
+<div class="text-center p-sm bg-surface-container-low rounded-lg">
+<p class="font-display text-h2 text-secondary">98%</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Retention Rate</p>
+</div>
+<div class="text-center p-sm bg-surface-container-low rounded-lg">
+<p class="font-display text-h2 text-secondary">12+</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Years Exp.</p>
+</div>
+<div class="text-center p-sm bg-surface-container-low rounded-lg">
+<p class="font-display text-h2 text-secondary">FTSE</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Corporate Tier</p>
+</div>
+<div class="text-center p-sm bg-surface-container-low rounded-lg">
+<p class="font-display text-h2 text-secondary">Global</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Logistics</p>
+</div>
+</div>
+</div>
+<!-- Skill Tags: Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h3 class="font-h3 text-h3 text-primary mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary">psychology</span> Core Competencies
+                        </h3>
+<div class="flex flex-wrap gap-sm">
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Strategic Planning</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Crisis Management</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">International Logistics</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Board Relations</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Wealth Management</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h3 class="font-h3 text-h3 text-primary mb-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary">laptop_mac</span> Technical Suite
+                        </h3>
+<div class="flex flex-wrap gap-sm">
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Salesforce CRM</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">SAP ERP</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Microsoft 365 E5</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Slack Enterprise</span>
+<span class="px-sm py-xs bg-surface-container-high text-on-primary-fixed-variant rounded-full font-label-caps text-label-caps">Concur</span>
+</div>
+</div>
+</div>
+<!-- Experience Timeline -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h2 class="font-display text-h2 text-primary border-b border-outline-variant pb-sm mb-md">Professional Journey</h2>
+<div class="space-y-lg relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+<!-- Experience Item 1 -->
+<div class="relative pl-lg">
+<div class="absolute left-0 top-2 w-[24px] h-[24px] bg-primary rounded-full border-4 border-surface z-10"></div>
+<div class="flex justify-between items-start flex-wrap gap-xs">
+<div>
+<h4 class="font-h3 text-h3 text-primary">Senior Executive Assistant to CEO</h4>
+<p class="font-body-md text-body-md text-secondary font-semibold">Meridian Global Holdings</p>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-sm py-xs rounded-full">2018 — Present</span>
+</div>
+<p class="mt-sm font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                Orchestrating the professional and personal requirements of the Global CEO. Managing a team of four junior EAs and overseeing executive board meetings across three continents. Reduced travel expenditure by 15% through strategic vendor negotiation.
+                            </p>
+</div>
+<!-- Experience Item 2 -->
+<div class="relative pl-lg">
+<div class="absolute left-0 top-2 w-[24px] h-[24px] bg-outline rounded-full border-4 border-surface z-10"></div>
+<div class="flex justify-between items-start flex-wrap gap-xs">
+<div>
+<h4 class="font-h3 text-h3 text-primary">Executive Assistant to Managing Director</h4>
+<p class="font-body-md text-body-md text-secondary font-semibold">Vanguard FinTech Group</p>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-sm py-xs rounded-full">2014 — 2018</span>
+</div>
+<p class="mt-sm font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                Provided high-level administrative support during the Series C and D funding rounds. Developed a centralized communication protocol for the leadership team which increased operational speed by 25%.
+                            </p>
+</div>
+<!-- Experience Item 3 -->
+<div class="relative pl-lg">
+<div class="absolute left-0 top-2 w-[24px] h-[24px] bg-outline rounded-full border-4 border-surface z-10"></div>
+<div class="flex justify-between items-start flex-wrap gap-xs">
+<div>
+<h4 class="font-h3 text-h3 text-primary">Personal Assistant to Chairman</h4>
+<p class="font-body-md text-body-md text-secondary font-semibold">Sterling &amp; Reed Partners</p>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container px-sm py-xs rounded-full">2011 — 2014</span>
+</div>
+<p class="mt-sm font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                Managed private family office affairs and corporate scheduling. Facilitated high-profile networking events and international business delegations.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Action Sidebar -->
+<div class="md:col-span-4 space-y-md">
+<div class="sticky top-[104px] space-y-md">
+<!-- Action Card -->
+<div class="bg-primary text-on-primary rounded-xl p-md shadow-xl">
+<h3 class="font-h3 text-h3 mb-md">Employer Actions</h3>
+<div class="space-y-sm">
+<button class="w-full bg-secondary-container text-on-secondary-container py-md rounded-lg font-button flex items-center justify-center gap-sm hover:opacity-90 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">person_add</span> Shortlist Candidate
+                            </button>
+<button class="w-full bg-on-primary text-primary py-md rounded-lg font-button flex items-center justify-center gap-sm hover:bg-surface-container-high transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">mail</span> Send Direct Message
+                            </button>
+<button class="w-full border border-on-primary-container text-on-primary py-md rounded-lg font-button flex items-center justify-center gap-sm hover:bg-white/10 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">work</span> Formal Hire Offer
+                            </button>
+</div>
+<p class="mt-md font-body-sm text-body-sm text-on-primary-container text-center italic">
+                            Average response time: 2 hours
+                        </p>
+</div>
+<!-- Trust Bar / Credentials -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-md uppercase">Vetting &amp; Compliance</h4>
+<ul class="space-y-md">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<div>
+<p class="font-body-sm text-body-sm font-bold text-primary">Identity Verified</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Government ID &amp; biometric check completed.</p>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<div>
+<p class="font-body-sm text-body-sm font-bold text-primary">Reference Check</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">3/3 Professional references verified.</p>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<div>
+<p class="font-body-sm text-body-sm font-bold text-primary">Bridge Assessment</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Top 2% performance in Executive Logistics test.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Availability Map Placeholder -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+<div class="h-32 bg-surface-container-high relative flex items-center justify-center">
+<img alt="London Map" class="w-full h-full object-cover opacity-50 grayscale" data-alt="A stylized, minimalist grayscale map of central London, focusing on the financial district and Mayfair. The map uses clean lines and soft tonal shifts to indicate major thoroughfares and landmark areas, fitting the premium corporate identity of the talent platform." data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdSKPx5Tt7nE5TxvbKSaX6LDRM9CiErF-eucH-ptmsIVm6EXCwsjO8zU1VjkS0IRtrP81Na0yQl629hihiDqxc_IY_cXUk5emd-hiA6ziGQGDcCkDegvg11aof-UPJv071nNOfWUuHj105OZnyT_j3zhQHvISZqlvq3AWjSQc5aZMh87rOTbO5cwBXei3gl-F-c_eNdtYZ-Qb-c5ytip8aGfypHx3ajJwmmpBIoXWexj8KOsLTEqqoQEc_JHvycXzfJhaKmb2NFdSQ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary text-on-primary px-sm py-xs rounded-full shadow-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">push_pin</span>
+<span class="font-label-caps text-label-caps">Based in London</span>
+</div>
+</div>
+</div>
+<div class="p-sm text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Open to Hybrid / Remote roles</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden border-t border-outline-variant bg-surface">
+<div class="flex justify-around items-center h-16 w-full">
+<div class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label-caps text-label-caps">Jobs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-caps text-label-caps">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant transition-transform active:scale-95">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Inbox</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</div>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-xl mt-auto bg-primary text-on-primary">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-md">
+<div>
+<h3 class="font-display text-h3 text-on-primary">BridgeLink</h3>
+<p class="font-body-sm text-body-sm text-surface-variant mt-xs">© 2024 BridgeLink. Premium Talent Acquisition.</p>
+</div>
+<div class="flex gap-md">
+<a class="text-surface-variant font-body-sm text-body-sm hover:text-secondary-fixed-dim underline transition-all" href="#">Terms of Service</a>
+<a class="text-surface-variant font-body-sm text-body-sm hover:text-secondary-fixed-dim underline transition-all" href="#">Privacy Policy</a>
+<a class="text-surface-variant font-body-sm text-body-sm hover:text-secondary-fixed-dim underline transition-all" href="#">Employer FAQ</a>
+</div>
+</div>
+</footer>
+</body></html>
