@@ -1,5 +1,7 @@
 # BridgeLink — Job Matching Platform
 
+Job matching platform by the Bridge Executive Academy.
+
 Premium talent acquisition marketplace built from the **Executive Bridge** design system in `assets/`.
 
 ## Stack
@@ -8,22 +10,19 @@ Premium talent acquisition marketplace built from the **Executive Bridge** desig
 - **Tailwind CSS v4**
 - **TypeScript**
 
-## Pages (from UI assets)
+## Pages
 
-| Route | Asset reference |
-|-------|-----------------|
-| `/` | `landing_page` |
-| `/talent` | `talent_dashboard` |
-| `/employer` | `employer_dashboard` |
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page |
+| `/sign-in` | Sign in |
+| `/sign-up` | Sign up (talent or employer) |
+| `/talent` | Talent dashboard |
+| `/employer` | Employer talent search |
 | `/jobs` | Job listings |
-| `/jobs/[id]` | `job_listing_page` |
-| `/profile` | `profile_page` |
-| `/profile/[id]` | Talent profile detail |
-| `/admin` | `admin_dashboard` |
-
-## Design tokens
-
-Colors, typography (Manrope + Inter), spacing, and components follow `assets/the bridgejon matching/executive_bridge/DESIGN.md`.
+| `/jobs/[id]` | Job detail |
+| `/profile/[id]` | Talent profile |
+| `/admin` | Admin dashboard |
 
 ## Getting started
 
@@ -34,6 +33,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Reference assets
+## Design
+
+Colors, typography (Manrope + Inter), spacing, and components follow `assets/the bridgejon matching/executive_bridge/DESIGN.md`.
 
 Original HTML mockups and screenshots live in `assets/the bridgejon matching/`.
