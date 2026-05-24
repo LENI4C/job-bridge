@@ -37,7 +37,7 @@ export default async function JobDetailPage({ params }: Props) {
         matchScore: 90,
       };
     }
-  } catch (e) {
+  } catch {
     // Quietly ignore and fall back
   }
 

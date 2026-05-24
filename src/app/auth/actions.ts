@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
-export async function login(prevState: any, formData: FormData) {
+export async function login(prevState: unknown, formData: FormData) {
   const supabase = await createClient();
 
   const email = formData.get("email") as string;
@@ -47,7 +47,7 @@ export async function login(prevState: any, formData: FormData) {
   }
 }
 
-export async function signup(prevState: any, formData: FormData) {
+export async function signup(prevState: unknown, formData: FormData) {
   const supabase = await createClient();
 
   const email = formData.get("email") as string;
@@ -59,7 +59,7 @@ export async function signup(prevState: any, formData: FormData) {
     return { error: "All fields are required." };
   }
 
-  const { data, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {

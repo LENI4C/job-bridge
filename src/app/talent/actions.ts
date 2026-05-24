@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 
-export async function claimCertificate(prevState: any, formData: FormData) {
+export async function claimCertificate(prevState: unknown, formData: FormData) {
   const supabase = await createClient();
 
   const certificateId = formData.get("certificateId") as string;

@@ -50,7 +50,7 @@ export default async function TalentDashboardPage() {
         userAvailability = talent.availability;
       }
     }
-  } catch (e) {
+  } catch {
     // Offline/Demo Fallback: Sarah Chen is certified by default
     isCertified = true;
   }
@@ -64,7 +64,7 @@ export default async function TalentDashboardPage() {
           <header className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <section>
               <h1 className="font-display text-3xl font-bold text-primary">
-                Talent Dashboard
+                Welcome, {userName}
               </h1>
               <p className="mt-2 text-lg text-on-surface-variant">
                 Manage your profile and explore matched opportunities.

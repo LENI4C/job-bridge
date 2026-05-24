@@ -31,7 +31,7 @@ export default async function JobsPage() {
         matchScore: 90,
       }));
     }
-  } catch (e) {
+  } catch {
     // Fallback quietly to mockJobs if DB fails or env credentials missing
     displayJobs = mockJobs;
   }
