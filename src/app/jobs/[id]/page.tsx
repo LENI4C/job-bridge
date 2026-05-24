@@ -5,15 +5,50 @@ import { Header } from "@/components/layout/Header";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Icon } from "@/components/Icon";
 import { ButtonLink } from "@/components/ui/Button";
-import { jobs } from "@/lib/data";
+import { jobs as mockJobs, Job } from "@/lib/data";
 import { routes } from "@/lib/navigation";
+import { createClient } from "@/lib/supabase/server";
 
 type Props = { params: Promise<{ id: string }> };
 
 export default async function JobDetailPage({ params }: Props) {
   const { id } = await params;
-  const job = jobs.find((j) => j.id === id);
-  if (!job) notFound();
+  let job: Job | undefined = undefined;
+
+  try {
+    const supabase = await createClient();
+    const { data: dbJob } = await supabase
+      .from("jobs")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    if (dbJob) {
+      job = {
+        id: dbJob.id,
+        title: dbJob.title,
+        company: dbJob.company,
+        location: dbJob.location,
+        salary: dbJob.salary,
+        description: dbJob.description,
+        tags: dbJob.tags,
+        workType: dbJob.work_type,
+        posted: "Recently",
+        matchScore: 90,
+      };
+    }
+  } catch (e) {
+    // Quietly ignore and fall back
+  }
+
+  if (!job) {
+    job = mockJobs.find((j) => j.id === id);
+  }
+
+  if (!job) {
+    notFound();
+    return null;
+  }
 
   const initials = job.company
     .split(" ")
@@ -51,7 +86,9 @@ export default async function JobDetailPage({ params }: Props) {
                     {initials}
                   </span>
                   <section>
-                    <h1 className="font-display text-3xl font-bold text-primary">{job.title}</h1>
+                    <h1 className="font-display text-3xl font-bold text-primary">
+                      {job.title}
+                    </h1>
                     <p className="text-on-surface-variant">
                       {job.company} • {job.location}
                     </p>
@@ -74,8 +111,12 @@ export default async function JobDetailPage({ params }: Props) {
               </ul>
             </header>
             <article className="card-interactive p-6">
-              <h2 className="mb-4 font-display text-xl font-bold text-primary">Role overview</h2>
-              <p className="leading-relaxed text-on-surface-variant">{job.description}</p>
+              <h2 className="mb-4 font-display text-xl font-bold text-primary">
+                Role overview
+              </h2>
+              <p className="leading-relaxed text-on-surface-variant">
+                {job.description}
+              </p>
               <p className="mt-6 leading-relaxed text-on-surface-variant">
                 Bridge Certified candidates receive priority review. This role requires high
                 discretion, executive-level communication, and modern productivity tools.
@@ -89,7 +130,9 @@ export default async function JobDetailPage({ params }: Props) {
                   <span className="font-display text-5xl font-bold text-secondary">
                     {job.matchScore}%
                   </span>
-                  <span className="mt-1 block text-sm text-on-surface-variant">Match score</span>
+                  <span className="mt-1 block text-sm text-on-surface-variant">
+                    Match score
+                  </span>
                 </p>
               )}
               <ButtonLink href={routes.talent} className="mb-3 w-full">

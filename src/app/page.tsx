@@ -56,7 +56,7 @@ export default function LandingPage() {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-secondary/20 to-primary/5 opacity-60 blur-2xl transition-opacity group-hover:opacity-100" />
               <article className="card-interactive relative overflow-hidden p-2">
                 <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9zz5SiZ2u_cnR6dr6JrqNOWSG7oVnxUU57t78aps8WLGAvjIqZ1DJwOey_iG5dp9d5D77HehtORZ10sWDOnUdMA8cPQDrhmI_lkJzbf8Nq4psgmDbRuLoFLK5hSACocI5CxcCUfy4o5_dmFUQTdgSvMM7xi9OlYLvFYmF__Wn9OfZIPStFOKlNBc2PoLS93mk5CONi5lvdeqm9PU00-8x9IXxY2h6YOaDhmdQ5ImnpMfXC3g1RMrYxd4H5YmGT31imvjOu4md8M0l"
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600&h=400"
                   alt="Corporate skyline"
                   width={600}
                   height={400}
@@ -142,7 +142,7 @@ export default function LandingPage() {
           <div className="mx-auto grid max-w-container-max items-center gap-16 px-gutter lg:grid-cols-2">
             <div className="relative">
               <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrfHJHYXldQwFo5SxP2jbfjcoSR9NxS2ysGXeBXiPI5Rl5a-UghF0TCPhcfGElleA6Phrr9akBa6oC1h8-aUP1KLP9eShffTCfV8Pq_ZzBWpIaP1yJ-O8K8-nVsca37EGjH8_6v3RGoVoUUAk7iAfKRw9Tdt6Hfub4Xy4Y3tRB-oX6P6wwu4Su1urwPhq_ja9mbq1HtlgrOp8GuA9gR97zFm9ReAvajrTGnmPqm15OqXFSrgT9x8TUwTzjG5TPOk2KxNrsZZZejClB"
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=640&h=480"
                 alt="Modern office"
                 width={640}
                 height={480}

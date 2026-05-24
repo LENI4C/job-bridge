@@ -32,7 +32,7 @@ export const talents: Talent[] = [
     skills: ["Operations", "Scheduling", "Travel Planning"],
     availability: "Available Full-Time",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBoW4JvcVeptW8JSnthqLv5WhObYe1lg-ZnZ9DcM66f3-ZkwH1zJymY37aXC4BzAwGF5WZk3ojfEQz34wvM2_gN-w6nSVzB3EGMbvbFnaioywAmmav0LlnSuk-KlBrlc3Vk6ySAm3IK3UurDuQqvcIsmTw2EtDe62hv-XJndQ5pCSHjAT2KRSkgvNF06MYyvXvTbXTADhmeK8T0tvewH5mzFISoV5bHZyBqP5MuzY2LSCaz6sbqYaHl76slh7ppEhyhKSf-63XENPBy",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400",
     certified: true,
     featured: true,
   },
@@ -44,7 +44,7 @@ export const talents: Talent[] = [
     skills: ["Notion", "CRM", "Workflows"],
     availability: "Available Part-Time",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDJDBqZhnyuv__3aXEUPCjY6oo9HwXvPN1nszgl9PBdpceljvi687c04W_185Uk64vyppWmT5ZjRcgFQcQXYK0569gBWZuyenS76u5AgesPGqu_wduJEsquc-xv4q-yRFEbsCv_7R0az8E0SqqD1NXxUcq4tIAN8kzklj7YgRJRxtNdwo8fxXnJJWx5RjDm21ojeG9RD1SOnGV3OSQ6nBfXjCslJaPTpOfQHTPTm0Q_MM7dmTruCviORPfknoMeqVSytT7LBV3-QkP5",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
     certified: true,
   },
   {
@@ -55,7 +55,7 @@ export const talents: Talent[] = [
     skills: ["Communications", "Stakeholders", "Strategy"],
     availability: "Available Full-Time",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCb1i9GZBXE1xsYG9htggFTQ7Z-pNAoMy7ebDJ17q_niIttlQyt9lADY6OVREvArVAFgxW3t1Ay5SqfWt73xzPx_zvIevg3-AbUyxfUx7LiHfw1SEtVQqg_1CPeh8wSEl3A0Nw9iiitpVKnovbf5zdhxPNfrvDjVvd7e6hvnaH9CSk2V_kolhBXLL3skcFLH0tEikRFwet3qYzPmvF4GY5eyFDpRW14pGGMALjb09N-fnbSxX1moZmo2AeHRnKm-gWu37mOPnz5S5Dj",
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400&h=400",
     certified: true,
   },
 ];

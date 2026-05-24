@@ -3,10 +3,39 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { ButtonLink } from "@/components/ui/Button";
-import { jobs } from "@/lib/data";
+import { jobs as mockJobs, Job } from "@/lib/data";
 import { routes } from "@/lib/navigation";
+import { createClient } from "@/lib/supabase/server";
 
-export default function JobsPage() {
+export default async function JobsPage() {
+  let displayJobs: Job[] = mockJobs;
+
+  try {
+    const supabase = await createClient();
+    const { data: dbJobs, error } = await supabase
+      .from("jobs")
+      .select("*")
+      .order("posted_at", { ascending: false });
+
+    if (dbJobs && dbJobs.length > 0 && !error) {
+      displayJobs = dbJobs.map((dj) => ({
+        id: dj.id,
+        title: dj.title,
+        company: dj.company,
+        location: dj.location,
+        salary: dj.salary,
+        description: dj.description,
+        tags: dj.tags,
+        workType: dj.work_type,
+        posted: "Recently", // Simplification from postgres timestamp
+        matchScore: 90,
+      }));
+    }
+  } catch (e) {
+    // Fallback quietly to mockJobs if DB fails or env credentials missing
+    displayJobs = mockJobs;
+  }
+
   return (
     <>
       <Header />
@@ -31,7 +60,7 @@ export default function JobsPage() {
         </section>
         <section className="mx-auto max-w-container-max px-gutter py-10">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            {jobs.map((job) => (
+            {displayJobs.map((job) => (
               <JobCard key={job.id} job={job} />
             ))}
           </div>
