@@ -73,7 +73,10 @@ create table public.sister_certificates (
 
 -- 3. AUTOMATIC PROFILE CREATION TRIGGER ON SIGN-UP
 create or replace function public.handle_new_user()
-returns trigger as $$
+returns trigger
+security definer
+set search_path = pg_catalog, public
+as $$
 begin
   insert into public.profiles (id, name, email, role)
   values (
@@ -98,7 +101,7 @@ begin
   end if;
   return new;
 end;
-$$ language plpgsql security definer;
+$$ language plpgsql;
 
 create trigger on_auth_user_created
   after insert on auth.users
@@ -115,18 +118,18 @@ alter table public.sister_certificates enable row level security;
 create policy "Anyone can view profiles" on public.profiles 
     for select using (true);
 create policy "Users can update own profile" on public.profiles 
-    for update using (auth.uid() = id);
+    for update using ((select auth.uid()) = id);
 
 -- Talents Policies
 create policy "Anyone can view talents" on public.talents 
     for select using (true);
 create policy "Talents can update own details" on public.talents 
-    for update using (auth.uid() = id);
+    for update using ((select auth.uid()) = id);
 create policy "Admins can manage all talents" on public.talents 
     for all using (
         exists (
             select 1 from public.profiles 
-            where id = auth.uid() and role = 'admin'
+            where id = (select auth.uid()) and role = 'admin'
         )
     );
 
@@ -137,27 +140,29 @@ create policy "Employers can create jobs" on public.jobs
     for insert with check (
         exists (
             select 1 from public.profiles 
-            where id = auth.uid() and role = 'employer'
+            where id = (select auth.uid()) and role = 'employer'
         )
     );
 create policy "Employers can manage own jobs" on public.jobs 
-    for all using (employer_id = auth.uid());
+    for all using (employer_id = (select auth.uid()));
 create policy "Admins can manage all jobs" on public.jobs 
     for all using (
         exists (
             select 1 from public.profiles 
-            where id = auth.uid() and role = 'admin'
+            where id = (select auth.uid()) and role = 'admin'
         )
     );
 
 -- Certifications Queue Policies
-create policy "Talents can view/apply for certifications" on public.certifications 
-    for all using (talent_id = auth.uid());
+create policy "Talents can view own certifications" on public.certifications 
+    for select using (talent_id = (select auth.uid()));
+create policy "Talents can apply for certifications" on public.certifications 
+    for insert with check (talent_id = (select auth.uid()) and status = 'pending');
 create policy "Admins can view and approve certifications" on public.certifications 
     for all using (
         exists (
             select 1 from public.profiles 
-            where id = auth.uid() and role = 'admin'
+            where id = (select auth.uid()) and role = 'admin'
         )
     );
 
@@ -168,13 +173,16 @@ create policy "Admins can manage sister certificates" on public.sister_certifica
     for all using (
         exists (
             select 1 from public.profiles 
-            where id = auth.uid() and role = 'admin'
+            where id = (select auth.uid()) and role = 'admin'
         )
     );
 
 -- 5. CERTIFICATE CLAIMS TRANSACTION RPC
 create or replace function public.claim_sister_certificate(p_certificate_id text)
-returns json as $$
+returns json
+security definer
+set search_path = pg_catalog, public
+as $$
 declare
     v_cert_email text;
     v_cert_claimed_by uuid;
@@ -182,7 +190,7 @@ declare
     v_user_role public.user_role;
 begin
     -- 1. Check if user is authenticated
-    if auth.uid() is null then
+    if (select auth.uid()) is null then
         return json_build_object('success', false, 'message', 'Authentication required.');
     end if;
 
@@ -206,7 +214,7 @@ begin
     select email, role
     into v_user_email, v_user_role
     from public.profiles
-    where id = auth.uid();
+    where id = (select auth.uid());
 
     -- 6. Verify email match
     if lower(v_user_email) != lower(v_cert_email) then
@@ -215,16 +223,16 @@ begin
 
     -- 7. Process Claim
     update public.sister_certificates
-    set claimed_at = now(), claimed_by_id = auth.uid()
+    set claimed_at = now(), claimed_by_id = (select auth.uid())
     where certificate_id = p_certificate_id;
 
     update public.talents
     set certified = true
-    where id = auth.uid();
+    where id = (select auth.uid());
 
     return json_build_object('success', true, 'message', 'Congratulations! Your Bridge Certificate has been successfully claimed.');
 end;
-$$ language plpgsql security definer;
+$$ language plpgsql;
 
 -- 6. SEED PRE-VERIFIED CERTIFICATES FOR TESTING
 insert into public.sister_certificates (certificate_id, recipient_email, recipient_name)
